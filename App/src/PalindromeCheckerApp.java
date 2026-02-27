@@ -15,18 +15,28 @@ public class PalindromeCheckerApp {
         String inputString = scanner.nextLine();
         scanner.close();
 
-        String reverseString = "";
-        int length = inputString.length();
-
-         for (int i = length - 1; i >= 0; i--) {
-            reverseString = reverseString + inputString.charAt(i);
+        char[] chars = inputString.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome = true;
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-         if (inputString.equals(reverseString)) {
-            System.out.println("Input string is a palindrome.");
+        if (isPalindrome) {
+            System.out.println("The string is a Palindrome.");
         } else {
-            System.out.println("Input string is not a palindrome.");
+            System.out.println("The string is NOT a Palindrome.");
         }
-
     }
 }
+
+
+
+
+
