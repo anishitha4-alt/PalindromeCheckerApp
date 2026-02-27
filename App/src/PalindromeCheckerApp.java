@@ -11,7 +11,7 @@ public class PalindromeCheckerApp {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a string to check if it is a palindrome:");
+        System.out.println("Input:");
         String inputString = scanner.nextLine();
         scanner.close();
 
@@ -29,9 +29,9 @@ public class PalindromeCheckerApp {
         }
 
         if (isPalindrome) {
-            System.out.println("The string is a Palindrome.");
+            System.out.println("Is Palindrome? : true");
         } else {
-            System.out.println("The string is NOT a Palindrome.");
+            System.out.println("Is Palindrome? : false");
         }
     }
 }
