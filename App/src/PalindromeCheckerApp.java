@@ -13,6 +13,12 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class PalindromeCheckerApp {
+  UC11
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input:");
+ 
   UC10
 
     public static void main(String[] args) {
@@ -82,6 +88,7 @@ public class PalindromeCheckerApp {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input:");
   main
+  main
         String inputString = scanner.nextLine();
         scanner.close();
         Queue<Character> queue=new LinkedList<>();
@@ -96,6 +103,13 @@ public class PalindromeCheckerApp {
             if(queue.remove() != stack.pop()){
  
 
+  UC11
+        PalindromeService service = new PalindromeService();
+
+        boolean result = service.checkPalindrome(inputString);
+
+        if(result){
+ 
   UC10
         String normalized = inputString.replaceAll("\\s+","").toLowerCase();
 
@@ -156,11 +170,33 @@ public class PalindromeCheckerApp {
   main
   main
   main
+  main
             System.out.println("Palindrome");
         } else {
             System.out.println("Not Palindrome");
         }
+    }
+}
 
+class PalindromeService{
+    public boolean checkPalindrome(String input){
+        int start = 0;
+        int end = input.length() - 1;
+
+  UC11
+        while(start < end){
+            if(input.charAt(start) != input.charAt(end)){
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
+}
+ 
   UC8
 
 
@@ -214,4 +250,5 @@ public class PalindromeCheckerApp {
 
 
 
+  main
   main
