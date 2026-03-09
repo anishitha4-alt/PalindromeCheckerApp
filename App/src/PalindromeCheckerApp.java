@@ -1,4 +1,7 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class PalindromeCheckerApp {
     /**
@@ -11,22 +14,46 @@ public class PalindromeCheckerApp {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a string to check if it is a palindrome:");
+        System.out.println("Input:");
         String inputString = scanner.nextLine();
         scanner.close();
-
-        String reverseString = "";
-        int length = inputString.length();
-
-         for (int i = length - 1; i >= 0; i--) {
-            reverseString = reverseString + inputString.charAt(i);
+        Queue<Character> queue=new LinkedList<>();
+        Stack<Character> stack=new Stack<>();
+        for(char c: inputString.toCharArray()){
+            queue.add(c);
+            stack.push(c);
         }
-
-         if (inputString.equals(reverseString)) {
-            System.out.println("Input string is a palindrome.");
+        boolean isPalindrome=true;
+        while(!queue.isEmpty()){
+            if(queue.remove() != stack.pop()){
+                isPalindrome = false;
+                break;
+            }
+        }
+        if(isPalindrome){
+            System.out.println("Palindrome");
         } else {
-            System.out.println("Input string is not a palindrome.");
+            System.out.println("Not Palindrome");
         }
+
+
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
