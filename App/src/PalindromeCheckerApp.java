@@ -103,10 +103,18 @@ public class PalindromeCheckerApp {
             if(queue.remove() != stack.pop()){
  
 
+UC12
+        PalindromeStrategy strategy = new StackStrategy();
+        PalindromeContext context = new PalindromeContext(strategy);
+
   UC11
         PalindromeService service = new PalindromeService();
+ main
 
-        boolean result = service.checkPalindrome(inputString);
+        boolean result = context.checkPalindrome(inputString);
+
+ UC12
+        if(result)
 
         if(result){
  
@@ -171,29 +179,55 @@ public class PalindromeCheckerApp {
   main
   main
   main
+ main
             System.out.println("Palindrome");
-        } else {
+        else
             System.out.println("Not Palindrome");
-        }
+
+
     }
 }
+interface PalindromeStrategy{
+    boolean check(String input);
+}
 
-class PalindromeService{
-    public boolean checkPalindrome(String input){
-        int start = 0;
-        int end = input.length() - 1;
+class StackStrategy implements PalindromeStrategy{
+    public boolean check(String input){
+        java.util.Stack<Character> stack = new java.util.Stack<>();
+
+        for(char c : input.toCharArray()){
+            stack.push(c);
+        }
+
+ UC12
+        for(char c : input.toCharArray()){
+            if(c != stack.pop()){
 
   UC11
         while(start < end){
             if(input.charAt(start) != input.charAt(end)){
+ main
                 return false;
             }
-            start++;
-            end--;
         }
 
         return true;
     }
+}
+class PalindromeContext {
+
+    private PalindromeStrategy strategy;
+
+    public PalindromeContext(PalindromeStrategy strategy){
+        this.strategy = strategy;
+    }
+
+    public boolean checkPalindrome(String input){
+        return strategy.check(input);
+    }
+}
+
+ UC12
 
 }
  
@@ -252,3 +286,4 @@ class PalindromeService{
 
   main
   main
+ main
