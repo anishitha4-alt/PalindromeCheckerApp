@@ -8,32 +8,50 @@ public class PalindromeCheckerApp {
         String inputString = scanner.nextLine();
         scanner.close();
 
-        PalindromeService service = new PalindromeService();
+        PalindromeStrategy strategy = new StackStrategy();
+        PalindromeContext context = new PalindromeContext(strategy);
 
-        boolean result = service.checkPalindrome(inputString);
+        boolean result = context.checkPalindrome(inputString);
 
-        if(result){
+        if(result)
             System.out.println("Palindrome");
-        } else {
+        else
             System.out.println("Not Palindrome");
-        }
+
+
     }
 }
+interface PalindromeStrategy{
+    boolean check(String input);
+}
 
-class PalindromeService{
-    public boolean checkPalindrome(String input){
-        int start = 0;
-        int end = input.length() - 1;
+class StackStrategy implements PalindromeStrategy{
+    public boolean check(String input){
+        java.util.Stack<Character> stack = new java.util.Stack<>();
 
-        while(start < end){
-            if(input.charAt(start) != input.charAt(end)){
+        for(char c : input.toCharArray()){
+            stack.push(c);
+        }
+
+        for(char c : input.toCharArray()){
+            if(c != stack.pop()){
                 return false;
             }
-            start++;
-            end--;
         }
 
         return true;
     }
-
 }
+class PalindromeContext {
+
+    private PalindromeStrategy strategy;
+
+    public PalindromeContext(PalindromeStrategy strategy){
+        this.strategy = strategy;
+    }
+
+    public boolean checkPalindrome(String input){
+        return strategy.check(input);
+    }
+}
+
