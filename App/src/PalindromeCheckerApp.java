@@ -1,32 +1,31 @@
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
-    /**
-     * Application entry point
-     * <p>
-     * This is a Java Palindrome Checker App Welcome Message
-     *
-     * @author Developer
-     * @Version 1.0
-     */
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a string to check if it is a palindrome:");
-        String inputString = scanner.nextLine();
+        System.out.println("Input");
+        String input = scanner.nextLine();
         scanner.close();
+        boolean result = check(input, 0, input.length() - 1);
 
-        String reverseString = "";
-        int length = inputString.length();
-
-         for (int i = length - 1; i >= 0; i--) {
-            reverseString = reverseString + inputString.charAt(i);
-        }
-
-         if (inputString.equals(reverseString)) {
-            System.out.println("Input string is a palindrome.");
+        if(result){
+            System.out.println("Palindrome");
         } else {
-            System.out.println("Input string is not a palindrome.");
+            System.out.println("Not Palindrome");
+        }
+    }
+    private static boolean check(String s ,int start,int end){
+        if(start >= end){
+            return true;
         }
 
+
+        if(s.charAt(start) != s.charAt(end)){
+            return false;
+        }
+
+
+        return check(s, start + 1, end - 1);
     }
 }
