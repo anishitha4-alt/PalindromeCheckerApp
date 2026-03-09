@@ -13,6 +13,12 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class PalindromeCheckerApp {
+  UC10
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input");
+ 
  UC9
 
     public static void main(String[] args) {
@@ -75,6 +81,7 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input:");
+  main
         String inputString = scanner.nextLine();
         scanner.close();
         Queue<Character> queue=new LinkedList<>();
@@ -89,6 +96,26 @@ public class PalindromeCheckerApp {
             if(queue.remove() != stack.pop()){
  
 
+  UC10
+        String normalized = inputString.replaceAll("\\s+","").toLowerCase();
+
+        boolean isPalindrome = true;
+
+        for(int i = 0; i < normalized.length()/2; i++){
+            if(normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)){
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if(isPalindrome)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+
+
+
+ 
  UC9
 
         if(s.charAt(start) != s.charAt(end)){
@@ -166,6 +193,7 @@ public class PalindromeCheckerApp {
   main
 
 
+  main
   main
     }
 }
