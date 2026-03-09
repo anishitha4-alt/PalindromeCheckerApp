@@ -107,6 +107,23 @@ UC12
         PalindromeStrategy strategy = new StackStrategy();
         PalindromeContext context = new PalindromeContext(strategy);
 
+ UC13
+        long startTime = System.nanoTime();
+        boolean result = isPalindrome(inputString);
+        long endTime = System.nanoTime();
+
+        System.out.println("Input: " + inputString);
+        System.out.println("Is it palindrome?: " + result);
+        System.out.println("Execution time: " + (endTime - startTime) + " ns");
+
+    }
+    public static boolean isPalindrome(String input) {
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
+ 
   UC11
         PalindromeService service = new PalindromeService();
  main
@@ -207,13 +224,16 @@ class StackStrategy implements PalindromeStrategy{
         while(start < end){
             if(input.charAt(start) != input.charAt(end)){
  main
+  main
                 return false;
             }
         }
-
         return true;
     }
 }
+  UC13
+
+ 
 class PalindromeContext {
 
     private PalindromeStrategy strategy;
@@ -287,3 +307,4 @@ class PalindromeContext {
   main
   main
  main
+  main
