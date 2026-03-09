@@ -8,32 +8,27 @@ public class PalindromeCheckerApp {
         String inputString = scanner.nextLine();
         scanner.close();
 
-        PalindromeService service = new PalindromeService();
+        long startTime = System.nanoTime();
+        boolean result = isPalindrome(inputString);
+        long endTime = System.nanoTime();
 
-        boolean result = service.checkPalindrome(inputString);
+        System.out.println("Input: " + inputString);
+        System.out.println("Is it palindrome?: " + result);
+        System.out.println("Execution time: " + (endTime - startTime) + " ns");
 
-        if(result){
-            System.out.println("Palindrome");
-        } else {
-            System.out.println("Not Palindrome");
-        }
     }
-}
-
-class PalindromeService{
-    public boolean checkPalindrome(String input){
+    public static boolean isPalindrome(String input) {
         int start = 0;
         int end = input.length() - 1;
 
-        while(start < end){
-            if(input.charAt(start) != input.charAt(end)){
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
                 return false;
             }
             start++;
             end--;
         }
-
         return true;
     }
-
 }
+
